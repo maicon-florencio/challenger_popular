@@ -3,6 +3,7 @@ package com.ch.home.sweethome.util;
 import com.ch.home.sweethome.dominio.Pessoa;
 import com.ch.home.sweethome.servico.CriteriosStrategy;
 import com.ch.home.sweethome.servico.dto.FamiliaDto;
+import com.ch.home.sweethome.servico.dto.PessoaDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +28,7 @@ public enum Criterios implements CriteriosStrategy {
         final List<Integer> tamanhoFamilia = familia.getFamiliares().
                 stream()
                 .filter(pessoa -> pessoa.getIdade() > 18)
-                .map(Pessoa::getIdade).collect(Collectors.toList());
+                .map(PessoaDto::getIdade).collect(Collectors.toList());
         return ((tamanhoFamilia.size() >= 3 )? 3: 2);
      }
     }
