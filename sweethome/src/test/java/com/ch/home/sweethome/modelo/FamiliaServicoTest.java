@@ -23,7 +23,7 @@ public class FamiliaServicoTest {
     @Test
     public void verificandoRendafamiliar(){
         FamiliaDto dto =  familiaBuilderTest.criarFamiliaComRendaFamiliaEComCriterios(2l);
-        Assert.assertNotNull(dto.getRendaFamiliar() > 0);
+        Assert.assertTrue(dto.getRendaFamiliar() > 0);
 
     }
 
