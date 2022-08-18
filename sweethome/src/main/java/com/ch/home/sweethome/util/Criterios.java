@@ -25,11 +25,10 @@ public enum Criterios implements CriteriosStrategy {
 
     FAMILIA_INTEGRANTES_MENOR_18 {@Override
     public int pontuacaoCriterios(FamiliaDto familia) {
-        final List<Integer> tamanhoFamilia = familia.getFamiliares().
+        final long tamanhoFamilia = familia.getFamiliares().
                 stream()
-                .filter(pessoa -> pessoa.getIdade() > 18)
-                .map(PessoaDto::getIdade).collect(Collectors.toList());
-        return ((tamanhoFamilia.size() >= 3 )? 3: 2);
+                .filter(pessoa -> pessoa.getIdade() >= 18).count();
+        return ((tamanhoFamilia >= 3 )? 3: 2);
      }
     }
 
