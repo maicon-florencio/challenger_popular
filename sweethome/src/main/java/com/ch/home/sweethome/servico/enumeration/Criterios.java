@@ -1,4 +1,4 @@
-package com.ch.home.sweethome.util;
+package com.ch.home.sweethome.servico.enumeration;
 
 import com.ch.home.sweethome.dominio.Pessoa;
 import com.ch.home.sweethome.servico.CriteriosStrategy;

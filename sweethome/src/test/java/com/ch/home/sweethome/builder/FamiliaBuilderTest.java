@@ -2,7 +2,7 @@ package com.ch.home.sweethome.builder;
 
 import com.ch.home.sweethome.servico.dto.FamiliaDto;
 import com.ch.home.sweethome.servico.dto.PessoaDto;
-import com.ch.home.sweethome.util.Criterios;
+import com.ch.home.sweethome.servico.enumeration.Criterios;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;

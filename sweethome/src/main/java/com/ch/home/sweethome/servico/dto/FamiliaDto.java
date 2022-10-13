@@ -1,7 +1,6 @@
 package com.ch.home.sweethome.servico.dto;
 
-import com.ch.home.sweethome.dominio.Pessoa;
-import com.ch.home.sweethome.util.Criterios;
+import com.ch.home.sweethome.servico.enumeration.Criterios;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
