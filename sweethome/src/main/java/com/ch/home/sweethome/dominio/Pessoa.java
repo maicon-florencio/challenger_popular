@@ -2,6 +2,7 @@ package com.ch.home.sweethome.dominio;
 
 import com.ch.home.sweethome.Util.ConstantesUtil;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @Entity
+@Builder
 @NoArgsConstructor
 @Table(name = "Pessoa")
 public class Pessoa implements Serializable {

@@ -1,12 +1,7 @@
 package com.ch.home.sweethome.servico.enumeration;
 
-import com.ch.home.sweethome.dominio.Pessoa;
-import com.ch.home.sweethome.servico.CriteriosStrategy;
+import com.ch.home.sweethome.servico.negocio.CriteriosStrategy;
 import com.ch.home.sweethome.servico.dto.FamiliaDto;
-import com.ch.home.sweethome.servico.dto.PessoaDto;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public enum Criterios implements CriteriosStrategy {
 
