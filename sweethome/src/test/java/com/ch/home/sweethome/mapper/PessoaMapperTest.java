@@ -1,19 +1,44 @@
 package com.ch.home.sweethome.mapper;
 
 import com.ch.home.sweethome.builder.PessoaBuilderTest;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import com.ch.home.sweethome.dominio.Pessoa;
+import com.ch.home.sweethome.servico.dto.PessoaDto;
+import com.ch.home.sweethome.servico.mapper.GenericMapperClass;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-@AutoConfigureMockMvc
+
 public class PessoaMapperTest {
 
-    PessoaBuilderTest pessoaBuilder;
 
+    PessoaBuilderTest pessoaBuilder;
+    @BeforeEach
+    public void setUp(){
+        pessoaBuilder = new PessoaBuilderTest();
+    }
+
+    @Test
+    public void parseEntityToDto(){
+        PessoaDto outPut =
+                GenericMapperClass.parseObject(pessoaBuilder.mockEntityPessoaSemFamilia(1L), PessoaDto.class);
+        Assert.assertEquals(Long.valueOf(1L), outPut.getId());
+        Assert.assertEquals(22, outPut.getIdade());
+        Assert.assertEquals("Aleranddro", outPut.getNome());
+        Assert.assertEquals("23438067056", outPut.getCpf());
+
+    }
+
+    @Test
+    public void parseDtotoEntity(){
+        Pessoa outPut =
+                GenericMapperClass.parseObject(pessoaBuilder.mockDtoPessoaSemFamilia(1L), Pessoa.class);
+        Assert.assertEquals(Long.valueOf(1L), outPut.getId());
+        Assert.assertEquals(22, outPut.getIdade());
+        Assert.assertEquals("Aleranddro", outPut.getNome());
+        Assert.assertEquals(1000.0, outPut.getSalario());
+        Assert.assertEquals("23438067056", outPut.getCpf());
+
+    }
 
 }

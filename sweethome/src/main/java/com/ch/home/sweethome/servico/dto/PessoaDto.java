@@ -1,5 +1,6 @@
 package com.ch.home.sweethome.servico.dto;
 
+import com.ch.home.sweethome.dominio.Familia;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +17,5 @@ public class PessoaDto implements Serializable {
     private String cpf;
     private double salario;
     private int idade;
+    private Familia familia;
 }

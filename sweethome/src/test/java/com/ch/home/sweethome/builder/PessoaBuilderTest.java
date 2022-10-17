@@ -4,22 +4,43 @@ import com.ch.home.sweethome.dominio.Pessoa;
 import com.ch.home.sweethome.servico.dto.PessoaDto;
 import org.springframework.stereotype.Component;
 
-@Component
+import java.util.ArrayList;
+import java.util.List;
+
 public class PessoaBuilderTest {
 
-    public Pessoa mockEntityPessoaSemFamilia(){
+
+    public List<Pessoa> mockEntityList() {
+        List<Pessoa> persons = new ArrayList<Pessoa>();
+        for (int i = 0; i < 14; i++) {
+            persons.add(mockEntityPessoaSemFamilia(Long.parseLong(String.valueOf(i))));
+        }
+        return persons;
+    }
+
+    public List<PessoaDto> mockVOList() {
+        List<PessoaDto> persons = new ArrayList<>();
+        for (int i = 0; i < 14; i++) {
+            persons.add(mockDtoPessoaSemFamilia(Long.parseLong(String.valueOf(i))));
+        }
+        return persons;
+    }
+
+    public Pessoa mockEntityPessoaSemFamilia(Long id){
         return  Pessoa.builder()
-                .id(1L)
+                .id(id)
                 .nome("Aleranddro")
-                .idade(22).salario(1000.0).cpf("23438067056").build();
+                .idade(22).salario(1000.0).cpf("23438067056").familia(null).build();
     }
 
 
-    public PessoaDto mockDtoPessoaSemFamilia(){
+    public PessoaDto mockDtoPessoaSemFamilia(Long id){
         return  PessoaDto.builder()
-                .id(1L)
+                .id(id)
                 .nome("Aleranddro")
-                .idade(22).salario(1000.0).cpf("23438067056").build();
+                .idade(22)
+                .salario(1000.0)
+                .cpf("23438067056").familia(null).build();
     }
 
 }
