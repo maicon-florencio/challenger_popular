@@ -13,10 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "FAMILIA")
 public class Familia implements Serializable {
+    private static final long serialVersionUID= 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String sobrenomeFamilia;
+    private String sobreNomeFamilia;
 
     @OneToMany(fetch = FetchType.EAGER)
     @JoinTable(name="FAMILIA_PESSOA",

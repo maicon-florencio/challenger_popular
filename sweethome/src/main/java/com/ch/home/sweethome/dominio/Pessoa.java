@@ -1,5 +1,6 @@
 package com.ch.home.sweethome.dominio;
 
+import com.ch.home.sweethome.Util.ConstantesUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Table(name = "Pessoa")
 public class Pessoa implements Serializable {
+
+    private static final long serialVersionUID= 1L;
+
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Column(name = "ID_PESSOA")
@@ -20,7 +24,7 @@ public class Pessoa implements Serializable {
     private String nome;
     private String cpf;
     private double salario;
-    @JoinColumn(name = "ID_FAMILIA" , referencedColumnName = "ID")
+    @JoinColumn(name = "ID_FAMILIA" , referencedColumnName = ConstantesUtil.ID)
     @ManyToOne(fetch = FetchType.LAZY)
     private Familia familia;
 
