@@ -9,15 +9,15 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class FamiliaDto {
+public class FamiliaDTO {
 
     private Long id;
-    private String sobrenomeFamilia;
-    private List<PessoaDto> familiares;
+    private String sobreNomeFamilia;
+    private List<PessoaDTO> familiares;
     private double rendaFamiliar;
     private List<Criterios> criterios;
     private int pontuacaoFamilia;
-    public int pontuacaoTotal(FamiliaDto familiaDto) {
+    public int pontuacaoTotal(FamiliaDTO familiaDto) {
         int pontuacao = 0;
         for (Criterios c: familiaDto.getCriterios()) {
             pontuacao += c.pontuacaoCriterios(familiaDto);

@@ -1,9 +1,8 @@
 package com.ch.home.sweethome.servico.negocio;
 
-import com.ch.home.sweethome.dominio.Familia;
-import com.ch.home.sweethome.servico.dto.FamiliaDto;
+import com.ch.home.sweethome.servico.dto.FamiliaDTO;
 
 public interface CriteriosStrategy {
 
-    public int pontuacaoCriterios(FamiliaDto familia);
+    public int pontuacaoCriterios(FamiliaDTO familia);
 }

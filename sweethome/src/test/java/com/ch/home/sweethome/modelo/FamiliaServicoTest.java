@@ -1,7 +1,7 @@
 package com.ch.home.sweethome.modelo;
 
 import com.ch.home.sweethome.builder.FamiliaBuilderTest;
-import com.ch.home.sweethome.servico.dto.FamiliaDto;
+import com.ch.home.sweethome.servico.dto.FamiliaDTO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,14 +22,14 @@ public class FamiliaServicoTest {
 
     @Test
     public void verificandoRendafamiliar(){
-        FamiliaDto dto =  familiaBuilderTest.criarFamiliaComRendaFamiliaEComCriterios(2l);
+        FamiliaDTO dto =  familiaBuilderTest.criarFamiliaComRendaFamiliaEComCriterios(2l);
         Assert.assertTrue(dto.getRendaFamiliar() > 0);
 
     }
 
     @Test
     public void verificandoPontuacaoFamiliar(){
-        FamiliaDto dto =  familiaBuilderTest.criarFamiliaComRendaFamiliaEComCriterios(2l);
+        FamiliaDTO dto =  familiaBuilderTest.criarFamiliaComRendaFamiliaEComCriterios(2l);
         dto.setPontuacaoFamilia(dto.pontuacaoTotal(dto));
         Assert.assertNotNull(dto.getRendaFamiliar() > 0);
         Assert.assertTrue(dto.getPontuacaoFamilia() > 0);

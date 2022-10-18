@@ -1,5 +1,6 @@
 package com.ch.home.sweethome.dominio;
 
+import com.ch.home.sweethome.servico.enumeration.Criterios;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,9 @@ public class Familia implements Serializable {
             joinColumns={@JoinColumn(name = "ID_PESSOA")},
             inverseJoinColumns={@JoinColumn(name = "ID_FAMILIA")})
     private List<Pessoa> familiares;
+
+    private Criterios criterios;
+    private int pontuacaoFamilia;
 
     private double rendaFamiliar;
 

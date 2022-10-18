@@ -1,12 +1,13 @@
 package com.ch.home.sweethome.builder;
 
 import com.ch.home.sweethome.dominio.Pessoa;
-import com.ch.home.sweethome.servico.dto.PessoaDto;
+import com.ch.home.sweethome.servico.dto.PessoaDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class PessoaBuilderTest {
 
 
@@ -18,8 +19,8 @@ public class PessoaBuilderTest {
         return persons;
     }
 
-    public List<PessoaDto> mockVOList() {
-        List<PessoaDto> persons = new ArrayList<>();
+    public List<PessoaDTO> mockVOList() {
+        List<PessoaDTO> persons = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             persons.add(mockDtoPessoaSemFamilia(Long.parseLong(String.valueOf(i))));
         }
@@ -34,8 +35,8 @@ public class PessoaBuilderTest {
     }
 
 
-    public PessoaDto mockDtoPessoaSemFamilia(Long id){
-        return  PessoaDto.builder()
+    public PessoaDTO mockDtoPessoaSemFamilia(Long id){
+        return  PessoaDTO.builder()
                 .id(id)
                 .nome("Aleranddro")
                 .idade(22)

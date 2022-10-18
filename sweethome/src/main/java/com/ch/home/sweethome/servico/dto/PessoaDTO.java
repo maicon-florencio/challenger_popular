@@ -2,15 +2,16 @@ package com.ch.home.sweethome.servico.dto;
 
 import com.ch.home.sweethome.dominio.Familia;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+
 @Builder
-public class PessoaDto implements Serializable {
+@Data
+public class PessoaDTO implements Serializable {
 
     private Long id;
     private String nome;

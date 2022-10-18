@@ -2,37 +2,42 @@ package com.ch.home.sweethome.mapper;
 
 import com.ch.home.sweethome.builder.PessoaBuilderTest;
 import com.ch.home.sweethome.dominio.Pessoa;
-import com.ch.home.sweethome.servico.dto.PessoaDto;
-import com.ch.home.sweethome.servico.mapper.GenericMapperClass;
+import com.ch.home.sweethome.servico.dto.PessoaDTO;
+import com.ch.home.sweethome.servico.mapper.PessoaMapper;
+import com.ch.home.sweethome.servico.mapper.impl.PessoaMapperImpl;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
+@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
+@AutoConfigureMockMvc
 public class PessoaMapperTest {
 
+    @Autowired
+   private  PessoaBuilderTest pessoaBuilder;
+    private PessoaMapperImpl pessoaMapper;
 
-    PessoaBuilderTest pessoaBuilder;
-    @BeforeEach
-    public void setUp(){
-        pessoaBuilder = new PessoaBuilderTest();
-    }
+
 
     @Test
     public void parseEntityToDto(){
-        PessoaDto outPut =
-                GenericMapperClass.parseObject(pessoaBuilder.mockEntityPessoaSemFamilia(1L), PessoaDto.class);
-        Assert.assertEquals(Long.valueOf(1L), outPut.getId());
-        Assert.assertEquals(22, outPut.getIdade());
-        Assert.assertEquals("Aleranddro", outPut.getNome());
-        Assert.assertEquals("23438067056", outPut.getCpf());
+        Pessoa p = pessoaBuilder.mockEntityPessoaSemFamilia(1L);
+
+        PessoaDTO dto = pessoaMapper.toDto(p);
+        Assert.assertEquals(p.getNome(), dto.getNome());
 
     }
 
     @Test
     public void parseDtotoEntity(){
         Pessoa outPut =
-                GenericMapperClass.parseObject(pessoaBuilder.mockDtoPessoaSemFamilia(1L), Pessoa.class);
+                pessoaMapper.toEntity(pessoaBuilder.mockDtoPessoaSemFamilia(1L));
         Assert.assertEquals(Long.valueOf(1L), outPut.getId());
         Assert.assertEquals(22, outPut.getIdade());
         Assert.assertEquals("Aleranddro", outPut.getNome());
